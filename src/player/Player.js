@@ -24,6 +24,7 @@ export class Player
     {
         window.onkeydown = e =>
         {
+            e.preventDefault();
             switch(e.key)
             {
                 case "ArrowUp"   : this.walkDirection = +1; break;
@@ -36,6 +37,7 @@ export class Player
 
         window.onkeyup = e =>
         {
+            e.preventDefault();
             switch(e.key)
             {
                 case "ArrowUp"   : this.walkDirection = 0; break; 

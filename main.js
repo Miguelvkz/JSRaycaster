@@ -15,7 +15,7 @@ let cell_size = 30,
     mapHeight = rows * cell_size;
 
 
-let grid = new World(mapGrid, context);
+let grid = new World({grid: mapGrid, ctx: context});
 let player = new Player({
     x: mapWidth  / 2,
     y: mapHeight / 2,

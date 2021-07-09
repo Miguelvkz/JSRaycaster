@@ -17,6 +17,9 @@ export class Player
         this.rotationAngle = Math.PI * 2;    
         this.context = params.context;
 
+        this.nextX = 0;
+        this.nextY = 0;
+
         this.startControls();
     }
 
@@ -37,7 +40,6 @@ export class Player
 
         window.onkeyup = e =>
         {
-            e.preventDefault();
             switch(e.key)
             {
                 case "ArrowUp"   : this.walkDirection = 0; break; 
@@ -47,8 +49,6 @@ export class Player
                 default:;
             }
         }
-
-        console.log(this.turnDirection);
 
     }
 

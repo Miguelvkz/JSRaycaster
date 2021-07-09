@@ -5,7 +5,7 @@
  */
 
 
-class Game
+export class Game
 {
     constructor({players, world})
     {
@@ -14,23 +14,31 @@ class Game
     }
 
     play()
-    {
-        this.world.grid.render()
+    {   
+        // Render Grid
+        this.world.render()
 
+        //Render Players
         this.players.forEach(player => {
-            player.updade()
-            player.render()
+            if(!this.checkWallCollition(player)){
+                player.update();
+            }
+            player.render();
         })
     }
 
     checkWallCollition(player)
     {
         let step = player.walkDirection * player.walkSpeed;
+
         let nextX = player.x + Math.cos(player.rotationAngle) * step;
         let nextY = player.y + Math.sin(player.rotationAngle) * step;
 
-        let gridX = Math.floor(nextX / this.world.)
+        let gridX = Math.floor(nextX / this.world.cellSize);
+        let gridY = Math.floor(nextY / this.world.cellSize);
 
+        return this.world.grid[gridY][gridX]
+        
     }
 
 }
